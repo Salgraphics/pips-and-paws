@@ -69,6 +69,10 @@
   --grain-opacity: 0.92;
   --vignette: radial-gradient(120% 90% at 50% 35%, transparent 45%, rgba(0, 0, 0, 0.5) 120%);
   --brand-ring: 0 0 0 1px color-mix(in srgb, var(--gold) 30%, transparent);
+  --bg-texture: url('./assets/bg-dungeon.jpg');
+  --bg-texture-size: cover;
+  --bg-texture-repeat: no-repeat;
+  --bg-scrim: linear-gradient(180deg, rgba(20, 16, 12, 0.5), rgba(20, 16, 12, 0.66));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -102,6 +106,10 @@
     --grain-opacity: 0.92;
     --vignette: radial-gradient(120% 90% at 50% 35%, transparent 45%, rgba(0, 0, 0, 0.5) 120%);
     --brand-ring: 0 0 0 1px color-mix(in srgb, var(--gold) 30%, transparent);
+    --bg-texture: url('./assets/bg-dungeon.jpg');
+    --bg-texture-size: cover;
+    --bg-texture-repeat: no-repeat;
+    --bg-scrim: linear-gradient(180deg, rgba(20, 16, 12, 0.5), rgba(20, 16, 12, 0.66));
   }
 }
 
@@ -119,12 +127,18 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-color: var(--bg);
+  /* Unterste Ebene: im Hellmodus das Papierkorn, im Dunkelmodus der
+     Verlies-Boden (--bg-texture). Darueber ein Scrim (--bg-scrim), der das
+     Foto abdunkelt; im Hellmodus faellt er als `none` weg. */
   background-image:
     radial-gradient(1200px 640px at 10% -10%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 62%),
     radial-gradient(1100px 660px at 94% -4%, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 56%),
     radial-gradient(1000px 900px at 50% 116%, color-mix(in srgb, var(--gold) 15%, transparent), transparent 62%),
-    var(--grain);
-  background-size: cover, cover, cover, 160px 160px;
+    var(--bg-scrim, none),
+    var(--bg-texture, var(--grain));
+  background-size: cover, cover, cover, cover, var(--bg-texture-size, 160px 160px);
+  background-position: center, center, center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, var(--bg-texture-repeat, repeat);
   opacity: var(--grain-opacity);
 }
 
