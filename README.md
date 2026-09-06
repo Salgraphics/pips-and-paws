@@ -60,9 +60,11 @@ Multiplayer, `lucide-react` fuer Icons. Kein Backend, kein Account.
 nicht woertlich uebernommen. Die freien PDFs unter `reference/` liegen nur lokal
 (Artwork nicht CC BY, per `.gitignore` ausgeschlossen).
 
-Logo, Social-Card und Bild-Platzhalter sind aus einer eigenen KI-Generierung
-abgeleitet (`img/logo-source.jpeg`), kein offizielles Mausritter-Artwork und kein
-Verlagslogo. `img/` ist sonst ein lokaler Arbeitsordner (gitignored).
+Logo, Social-Card und Bild-Platzhalter sind aus eigenen KI-Generierungen
+abgeleitet (`img/logo_new.jpeg` fuers Wappen, `img/background.jpeg` fuer den
+Hintergrund der Social-Card, `img/logo-source.jpeg` fuer den Platzhalter), kein
+offizielles Mausritter-Artwork und kein Verlagslogo. `img/` ist sonst ein
+lokaler Arbeitsordner (gitignored).
 
 ## Rechtliches
 
