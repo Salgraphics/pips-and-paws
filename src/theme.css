@@ -871,7 +871,7 @@ summary,
 
 .attr-row {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: stretch;
 }
 
@@ -880,6 +880,7 @@ summary,
   flex-direction: column;
   gap: 4px;
   align-items: center;
+  min-width: 0; /* darf im engen Raster schrumpfen, statt aus der Karte zu ragen */
 }
 
 .attr-cap {
@@ -909,7 +910,9 @@ summary,
 }
 
 .attr-cell:first-child .stepper input {
-  width: 52px;
+  width: 100%;
+  min-width: 34px;
+  max-width: 56px;
   font-size: 33px;
   line-height: 1;
   color: var(--ink);
@@ -932,11 +935,21 @@ summary,
 
 /* MAX — klein, sekundaer */
 .attr-cell:last-child {
-  flex: 1;
+  flex: 0 1 auto;
   justify-content: center;
 }
 
-.attr-cell:last-child .stepper { transform: scale(0.92); }
+/* Kompakt genug, dass AKTUELL + MAX auch im engen Zwei-Spalten-Layout
+   nebeneinander in die Karte passen (transform aendert die Box nicht). */
+.attr-cell:last-child .stepper button {
+  padding: 4px 7px;
+  font-size: 13px;
+}
+
+.attr-cell:last-child .stepper input {
+  width: 30px;
+  font-size: 15px;
+}
 
 .attr-save {
   align-self: stretch;
@@ -3075,11 +3088,11 @@ summary,
    Dashboard arbeitet. Darunter (Tablet/Handy) bleibt alles einspaltig.
    Gilt fuer Spielerbogen UND SL-Dashboard: der SL soll fuer einen Wurf oder
    einen Blick ins Wurf-Protokoll nirgendwohin scrollen muessen. */
-@media (min-width: 1180px) {
+@media (min-width: 1200px) {
   .sheet,
   .gm-dash {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 340px;
+    grid-template-columns: minmax(0, 1fr) 324px;
     align-items: start;
   }
 
@@ -3098,4 +3111,12 @@ summary,
     max-height: calc(100vh - 32px);
     overflow-y: auto;
   }
+}
+
+/* Solange die zweite Spalte die erste einengt, stapeln die Attributskarten
+   AKTUELL ueber MAX — nebeneinander wuerde MAX sonst aus der Karte gedraengt. */
+@media (min-width: 1200px) and (max-width: 1420px) {
+  .attr-row { flex-direction: column; align-items: stretch; }
+  .attr-cell:last-child { flex: 0 0 auto; }
+  .attr-cell:last-child .stepper { align-self: center; }
 }
