@@ -12,6 +12,10 @@ img/*
 !img/logo-source.jpeg
 !img/logo_new.jpeg
 !img/background.jpeg
+!img/heller-hintergrund.jpeg
+!img/neue-maus.jpeg
+!img/keine-maus.jpeg
+!img/tisch-leer.jpeg
 
 # Rechtstexte-Quellen (die fertigen Seiten liegen in public/)
 imp/
