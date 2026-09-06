@@ -1,89 +1,122 @@
-# Pips & Paws
+<div align="center">
 
-Digitaler Charakterbogen, Spielleiter-Dashboard und **Echtzeit-Multiplayer** fuer das
-Pen-&-Paper-Rollenspiel **Mausritter** — alles im Browser, ohne Anmeldung.
+<img src="public/logo.jpg" alt="Pips & Paws" width="300" />
 
-**▶ Web-App: <https://dondavis-vibe.github.io/pips-and-paws/>**
+# Pips &amp; Paws
 
-## Was drin ist
+**Charakterbogen · Spielleiter-Dashboard · serverloser Echtzeit-Multiplayer**
+für das Pen-&-Paper-Rollenspiel **Mausritter** — alles im Browser, ohne Anmeldung.
 
-- **Charakterbogen** — Attribute (aktuell/max, nie ueber Maximum), Trefferpunkte /
-  Pips / EP / Mumm, Charakterbild (Upload mit Platzhalter), Notizen. Wuerfeln mit W6,
-  W66 und Rettungswurf (W20 ≤ Attribut) inkl. Vorteil/Nachteil; jeder Wurf landet im
-  Wuerfel-Panel. Rast-Helfer (kurz/lang/voll), vom SL sperr- und ausloesbar.
-- **Drag-and-Drop-Inventar** — Pfoten / Koerper / Rucksack, 1- und 2-Platz-Gegenstaende,
-  Tausch, Nutzungspunkte, Zustaende als Kaertchen. Klick auf den Schadens-Chip einer
-  Waffe wuerfelt (ein-/zweihaendig getrennt). Symbol pro Gegenstand waehlbar.
-- **Charaktererschaffung** nach SRD 2.3.1 — 3W6 (zwei hoechste), Trefferpunkte/Pips je 1W6,
-  vollstaendige 36er-Hintergrundtabelle, Startausruestung, Schwache-Maus-Regel,
-  Sternzeichen / Fell / Merkmal
-- **Serverloser Multiplayer** (WebRTC/PeerJS) — SL eroeffnet einen Raum, Spieler treten
-  per 4-Zeichen-Code oder `?join`-Link bei. Reconnect, Reload-Wiederherstellung.
-  Geteiltes Runden-Log: der SL schaltet es frei, dann sehen alle Spieler die Wuerfe
-  und Ereignisse der Runde.
-- **SL-Dashboard** — alle Helden auf einen Blick (Bild, TP, Werte, Ruestung, belegte
-  Plaetze, Waffen, Zustaende), Aktionen (Schaden / Heilen / Pips / EP / Rast /
-  Rettungswurf oder Initiative fordern / Fluestern / Ansage / Item / Zustand geben),
-  vollwertiges SL-Wuerfel-Panel mit Reaktions-/Schatzwurf und Wurf-Protokoll
-  (inkl. der Wuerfe aller Spieler), Live-Protokoll
-- **SL-Werkzeuge** — gemeinsame Tischmitte (Loot schieben, Gegenstaende vor den
-  Spielern verstecken), Zeit-/Licht-/Begegnungs-Tracker mit Alarmbanner und
-  optionaler Tageszeit-Anzeige fuer die Spieler, NSC-/Kampf-Tracker mit Moralprobe
-  und „fuer Spieler sichtbar", SL-Sitzung sichern/laden, allgemeine Notizen
-- **Optionaler Discord-Webhook** — spiegelt Wuerfe und Ereignisse in einen Kanal
-- **Bedienung** — einklappbare Panels (Zustand gemerkt), Hell-/Dunkel-Schalter mit
-  eigenem Hintergrundbild je Modus, klebender Wuerfelbereich auf breiten Schirmen,
-  zweisprachig DE / EN, Persistenz im `localStorage`, JSON-Export/-Import
+### ▶ [dondavis-vibe.github.io/pips-and-paws](https://dondavis-vibe.github.io/pips-and-paws/)
+
+<sub>zweisprachig DE / EN · alles bleibt lokal im Browser · kein Konto, kein Server</sub>
+
+</div>
+
+---
+
+Öffne die Seite, würfle dir eine Maus zusammen und leg los. Willst du zu mehreren
+spielen, eröffnet die Spielleitung einen Raum und teilt einen Link — die Verbindung
+läuft direkt zwischen den Browsern (WebRTC), ohne dass Daten über einen Server des
+Betreibers laufen.
+
+## Für Spieler:innen
+
+- **Charakterbogen** — STR / GES / WIL (aktuell & Maximum), Trefferpunkte, Pips, EP,
+  Mumm, Charakterbild und Notizen. Alles wird automatisch im Browser gesichert.
+- **Charaktererschaffung nach SRD 2.3.1** — 3W6 (die zwei höchsten), TP & Pips je 1W6,
+  vollständige 36er-Hintergrundtabelle mit Startausrüstung, Schwache-Maus-Regel,
+  Sternzeichen · Fell · Merkmal.
+- **Inventar per Drag & Drop** — zwei Pfoten, zwei Körper, sechs Rucksack; 1- und
+  2-Platz-Gegenstände, Tausch, Nutzungspunkte, Zustände als Kärtchen. Jeder
+  Gegenstand hat ein Symbol, das sich austauschen lässt.
+- **Würfeln** — W6, W66 und Rettungswurf (W20 ≤ Attribut) mit Vorteil / Nachteil.
+  Ein Klick auf den Schadenswert einer Waffe würfelt den Schaden (ein- und
+  zweihändig getrennt). Jeder Wurf landet sichtbar im Würfel-Panel.
+- **Rast-Helfer** — kurz / lang / voll, mit Rationsverbrauch und Attributs-Heilung
+  nach den Regeln.
+
+## Für Spielleiter:innen
+
+- **Dashboard** — alle Helden auf einen Blick: Bild, TP, Werte, Rüstung, belegte
+  Plätze, Waffen, Zustände.
+- **Eingriffe pro Maus** — Schaden, Heilen, Pips, EP, Rast auslösen, Rettungswurf
+  oder Initiative fordern, flüstern, Ansage an alle, Gegenstand oder Zustand geben.
+- **Würfel-Panel** mit Ergebnis-Bühne, Reaktions- und Schatzwurf und einem
+  Wurf-Protokoll, in dem auch die Würfe aller Spieler auftauchen.
+- **Tischmitte** — gemeinsamer Loot-Ablage; Gegenstände lassen sich vorbereiten
+  und vor den Spielern verstecken, bis sie „auf dem Tisch" liegen.
+- **Zeit & Licht** — Zug-/Wachen-/Tag-Zähler, Fackel- und Begegnungs-Countdown,
+  Alarmbanner bei Begegnung oder Vorzeichen, optionale Tageszeit-Anzeige für die Spieler.
+- **NSC- & Kampf-Tracker** — Kreaturen aus dem SRD oder eigene, Angriff und
+  Moralprobe per Klick, einzelne NSC für die Spieler sichtbar schalten.
+- **Sitzung sichern & laden** und allgemeine Notizen.
+
+## Zusammen spielen
+
+- **Serverloser Multiplayer** über WebRTC / PeerJS. Die Spielleitung ist der Host;
+  Spieler treten per 4-Zeichen-Code oder `?join`-Link bei. Reconnect und
+  Reload-Wiederherstellung sind eingebaut.
+- **Geteiltes Runden-Log** — die Spielleitung schaltet es frei, dann sehen alle
+  Spieler die Würfe und Ereignisse der Runde in ihrem eigenen Bogen. Würfe der
+  Spieler erreichen die Spielleitung in jedem Fall.
+- **Optionaler Discord-Webhook** — spiegelt Würfe und Ereignisse in einen Kanal.
+  Die URL liegt nur im `localStorage`, nie in der Charakterdatei.
+
+## Außerdem
+
+Einklappbare Panels (Zustand gemerkt) · Hell-/Dunkel-Schalter mit eigenem
+Hintergrundbild je Modus · klebender Würfelbereich auf breiten Bildschirmen ·
+JSON-Export / -Import des Bogens · funktioniert offline aus einer einzigen Datei.
 
 ## Entwickeln
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run build      # -> dist/index.html (eine portable Datei, viteSingleFile)
+npm run build      # -> dist/index.html  (eine portable Datei, viteSingleFile)
 npm run preview
-npm run lint        # oxlint
+npm run lint       # oxlint
 ```
 
-Push auf `main` deployt via GitHub Actions auf GitHub Pages.
+Push auf `main` baut und deployt über GitHub Actions auf GitHub Pages.
+
+**Stack:** Vite + React 19 (plain JS, kein TypeScript), `@dnd-kit` fürs
+Inventar-Raster, `peerjs` für den Multiplayer, `lucide-react` für Icons.
+Kein Backend, kein Konto.
 
 ## Mitmachen
 
-PRs willkommen — vor allem Übersetzungen. Details in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+Pull Requests sind willkommen — besonders Übersetzungen. Der Ablauf und die
+Schritte für eine neue Sprache stehen in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 `src/i18n/es.json` (Spanisch) ist als Kopie von `en.json` schon angelegt und
-wartet auf Übersetzung; die UI-Sprache wird über eine Zeile in `src/i18n/index.jsx`
-freigeschaltet.
+wartet auf Übersetzung; freigeschaltet wird eine Sprache über eine Zeile in
+`src/i18n/index.jsx`.
 
-## Stack
-
-Vite + React 19 (plain JS), `@dnd-kit` fuers Inventar-Raster, `peerjs` fuer den
-Multiplayer, `lucide-react` fuer Icons. Kein Backend, kein Account.
-
-## Regeldaten
+## Regeldaten & Bilder
 
 `src/data/*` ist aus dem offiziellen **Mausritter SRD 2.3.1** abgeleitet
-(`reference/mausritter-srd-2.3.1.md`, CC BY 4.0). Wirkungstexte sind zusammengefasst,
-nicht woertlich uebernommen. Die freien PDFs unter `reference/` liegen nur lokal
-(Artwork nicht CC BY, per `.gitignore` ausgeschlossen).
+(CC BY 4.0). Wirkungstexte sind zusammengefasst, nicht wörtlich übernommen. Die
+freien PDFs unter `reference/` liegen nur lokal (Artwork nicht CC BY, per
+`.gitignore` ausgeschlossen).
 
-Logo, Social-Card und Bild-Platzhalter sind aus eigenen KI-Generierungen
-abgeleitet (`img/logo_new.jpeg` fuers Wappen, `img/background.jpeg` fuer den
-Hintergrund der Social-Card, `img/logo-source.jpeg` fuer den Platzhalter), kein
-offizielles Mausritter-Artwork und kein Verlagslogo. `img/` ist sonst ein
-lokaler Arbeitsordner (gitignored).
+Wappen, Hintergrundbilder, Vignetten und Bild-Platzhalter sind aus eigenen
+KI-Generierungen abgeleitet (Quellen in `img/`), **kein** offizielles
+Mausritter-Artwork und **kein** Verlagslogo.
 
 ## Rechtliches
 
 [Impressum &amp; Datenschutzerklärung](https://dondavis-vibe.github.io/pips-and-paws/impressum.html)
-(eine Seite, `public/impressum.html`, im Footer verlinkt). Der Datenschutz-Teil
-beschreibt den tatsächlichen technischen Aufbau — bei Änderungen an externen
-Diensten oder gespeicherten Schlüsseln anpassen.
+— eine Seite (`public/impressum.html`), im Footer verlinkt. Der Datenschutz-Teil
+beschreibt den tatsächlichen technischen Aufbau; bei Änderungen an externen
+Diensten oder gespeicherten Schlüsseln anpassen. Wer den Code forkt und selbst
+betreibt, braucht ein eigenes Impressum (siehe `CONTRIBUTING.md`).
 
 ## Lizenz
 
-Code: MIT (`LICENSE`).
+Code: **MIT** (`LICENSE`).
 
-*Pips & Paws is an independent production by DonDavis and is not affiliated with Losing Games.*
-
-*This work is based on Mausritter, a product of Losing Games and Isaac Williams, and
-is licensed for use under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.*
+> *Pips &amp; Paws is an independent production by DonDavis and is not affiliated with Losing Games.*
+>
+> *This work is based on Mausritter, a product of Losing Games and Isaac Williams, and is
+> licensed for use under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.*
