@@ -1137,7 +1137,13 @@ summary,
   text-decoration: line-through;
 }
 
+/* Statische Karte (Tischmitte): nur nicht bedienbar, sonst normal ausgerichtet. */
 .item-card.item-overlay {
+  cursor: default;
+}
+
+/* Nur die Karte am Mauszeiger wird gekippt und hervorgehoben. */
+.item-card.item-dragging {
   box-shadow: var(--shadow-lg);
   cursor: grabbing;
   transform: rotate(-2.5deg) scale(1.03);
@@ -2962,10 +2968,14 @@ summary,
   display: flex;
   flex-direction: column;
   gap: 6px;
+  height: 100%;
 }
 
+/* Karten sind unterschiedlich hoch (Waffen haben eine Schadenszeile mehr).
+   Die Karte fuellt die Zeilenhoehe, damit die Knopfreihen buendig sitzen. */
 .stash-item .item-card {
   cursor: default;
+  flex: 1;
 }
 
 /* Versteckte Vorbereitung: gedaempft und gestrichelt, damit der SL sie sofort

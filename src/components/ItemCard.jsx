@@ -9,7 +9,9 @@ import { weaponDamageOptions } from '../rules/dice.js';
 import { iconForItem } from '../data/icons.js';
 import IconPicker from './IconPicker.jsx';
 
-export default function ItemCard({ item, onChange, onRemove, onStash, onRollDamage, dragId, overlay }) {
+// overlay  = statische, nicht bedienbare Karte (z.B. in der Tischmitte)
+// dragging = die Karte, die gerade am Mauszeiger haengt (bekommt die Schraeglage)
+export default function ItemCard({ item, onChange, onRemove, onStash, onRollDamage, dragId, overlay, dragging }) {
   const { t, lang } = useLang();
   const [showEffect, setShowEffect] = useState(false);
   const [pickerAnchor, setPickerAnchor] = useState(null);
@@ -29,7 +31,7 @@ export default function ItemCard({ item, onChange, onRemove, onStash, onRollDama
     <div
       ref={overlay ? undefined : drag.setNodeRef}
       style={style}
-      className={`item-card type-${item.type}${item.cleared ? ' item-cleared' : ''}${item.size === 2 ? ' item-wide' : ''}${overlay ? ' item-overlay' : ''}`}
+      className={`item-card type-${item.type}${item.cleared ? ' item-cleared' : ''}${item.size === 2 ? ' item-wide' : ''}${overlay ? ' item-overlay' : ''}${dragging ? ' item-dragging' : ''}`}
     >
       <div className="item-top">
         {overlay ? null : (

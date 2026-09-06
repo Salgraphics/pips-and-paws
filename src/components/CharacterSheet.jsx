@@ -25,6 +25,7 @@ import { shareSave, shareRoll } from '../utils/discord.js';
 export default function CharacterSheet({ character, setCharacter, notify, onEvent, stash, partyLog, partyTime, restLocked, partyNpcs }) {
   const { t, lang } = useLang();
   const [activeId, setActiveId] = useState(null);
+  const [externalRoll, setExternalRoll] = useState(null);
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),
@@ -82,25 +83,55 @@ export default function CharacterSheet({ character, setCharacter, notify, onEven
     });
   };
 
+  // Wuerfe, die nicht im Wuerfel-Panel selbst ausgeloest werden, wandern ueber
+  // diesen Kanal trotzdem dorthin — sonst waeren sie nur ein kurzer Toast.
+  const pushRoll = (stage, logEntry) =>
+    setExternalRoll({ id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, stage, logEntry });
+
   // Direkter Schadenswurf ueber die Waffenkarte (Discord-Feedback).
   const onRollDamage = (item, opt) => {
     const value = rollDie(opt.sides);
     const weapon = loc(item.name, lang);
     const hands = opt.hands ? ` (${t(`item.hands.${opt.hands}`)})` : '';
-    const label = `${weapon}${hands} ${t('dice.dieLetter')}${opt.sides}`;
-    notify(`${label} — ${t('item.damage')} ${value}`, 'bad');
-    if (onEvent) onEvent({ kind: 'roll', label, value });
-    shareRoll(character.name || t('app.title'), label, value);
+    const label = `${weapon}${hands}`;
+    const die = `${t('dice.dieLetter')}${opt.sides}`;
+    const verdict = `${t('item.damage')} ${value}`;
+    pushRoll(
+      { label: `${label} ${die}`, value, max: opt.sides, tone: 'bad', verdict },
+      { label: `${label} ${die}`, verdict },
+    );
+    notify(`${label} ${die} — ${verdict}`, 'bad');
+    if (onEvent) onEvent({ kind: 'roll', label: `${label} ${die}`, value });
+    shareRoll(character.name || t('app.title'), `${label} ${die}`, value);
   };
 
   const onSave = (attrKey) => {
     const r = rollSave(character[attrKey].current);
+    const attr = t(`attr.${attrKey}`);
+    const label = t('dice.saveVs', { attr });
+    const tone = r.nat1 ? 'crit-good' : r.nat20 ? 'crit-bad' : r.ok ? 'ok' : 'bad';
+    const verdict = (r.nat1 && t('dice.nat1')) || (r.nat20 && t('dice.nat20'))
+      || (r.ok ? t('dice.success') : t('dice.fail'));
+    pushRoll(
+      {
+        label,
+        value: r.d,
+        max: 20,
+        tone,
+        verdict,
+        parts: [
+          { value: r.d, label: t('dice.roll') },
+          { value: `≤ ${r.target}`, label: t('dice.target') },
+        ],
+      },
+      { label, verdict: `${r.d} · ${r.ok ? t('dice.success') : t('dice.fail')}`, ok: r.ok, tone },
+    );
     notify(
-      `${t('dice.saveVs', { attr: t(`attr.${attrKey}`) })} — d20 ${r.d} ≤ ${r.target} · ${r.ok ? t('dice.success') : t('dice.fail')}`,
+      `${label} — d20 ${r.d} ≤ ${r.target} · ${r.ok ? t('dice.success') : t('dice.fail')}`,
       r.ok ? 'ok' : 'bad',
     );
     if (onEvent) onEvent({ kind: 'save', attr: attrKey, roll: r.d, target: r.target, ok: r.ok });
-    shareSave(character.name || t('app.title'), t(`attr.${attrKey}`), r.d, r.target, r.ok);
+    shareSave(character.name || t('app.title'), attr, r.d, r.target, r.ok);
   };
 
   // Beim Ziehen aus der Mitte liegt der Gegenstand noch nicht im eigenen Inventar.
@@ -200,12 +231,12 @@ export default function CharacterSheet({ character, setCharacter, notify, onEven
           />
         ) : null}
 
-        <DragOverlay>{activeItem ? <ItemCard item={activeItem} overlay /> : null}</DragOverlay>
+        <DragOverlay>{activeItem ? <ItemCard item={activeItem} overlay dragging /> : null}</DragOverlay>
       </DndContext>
 
       <PartyNpcs npcs={partyNpcs} />
 
-      <DiceRoller character={character} onEvent={onEvent} />
+      <DiceRoller character={character} onEvent={onEvent} external={externalRoll} />
 
       {partyLog ? <PartyLog entries={partyLog.entries} shared={partyLog.shared} /> : null}
 
