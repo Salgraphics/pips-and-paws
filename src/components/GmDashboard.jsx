@@ -10,6 +10,8 @@ import SharedStash from './SharedStash.jsx';
 import GmTimeTracker from './GmTimeTracker.jsx';
 import GmCombatTracker from './GmCombatTracker.jsx';
 import GmNotes from './GmNotes.jsx';
+import EmptyState from './EmptyState.jsx';
+import emptyLobby from '../assets/empty-lobby.jpg';
 import { GM_BROADCAST, GM_SAVE } from '../multiplayer/protocol.js';
 import { rollDice, rollD66, rollReaction, rollTreasure } from '../rules/dice.js';
 import { CONDITION_CATALOG } from '../data/items.js';
@@ -203,7 +205,7 @@ export default function GmDashboard({ mp, notify }) {
         </div>
 
         {entries.length === 0 ? (
-          <p className="hint">{t('gm.noPlayers')}</p>
+          <EmptyState img={emptyLobby} alt="">{t('gm.noPlayers')}</EmptyState>
         ) : (
           <div className="gm-grid">
             {entries.map(([peerId, player]) => (

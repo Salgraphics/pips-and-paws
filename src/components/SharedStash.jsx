@@ -6,6 +6,8 @@ import AddItemMenu from './AddItemMenu.jsx';
 import Panel from './Panel.jsx';
 import IconPicker from './IconPicker.jsx';
 import { iconForItem } from '../data/icons.js';
+import EmptyState from './EmptyState.jsx';
+import emptyStash from '../assets/empty-stash.jpg';
 
 // Praefix, an dem onDragEnd erkennt: die Karte kommt aus der Mitte, nicht aus dem Raster.
 export const STASH_DRAG_PREFIX = 'stash:';
@@ -50,7 +52,7 @@ export default function SharedStash({ items, mode, onAdd, onRemove, onClear, onT
       ) : null}
     >
       {items.length === 0 ? (
-        <p className="hint">{mode === 'gm' ? t('stash.emptyGm') : t('stash.emptyPlayer')}</p>
+        <EmptyState img={emptyStash} alt="">{mode === 'gm' ? t('stash.emptyGm') : t('stash.emptyPlayer')}</EmptyState>
       ) : (
         <div className="stash-grid">
           {items.map((it) => (

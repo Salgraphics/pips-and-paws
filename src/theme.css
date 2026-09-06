@@ -35,6 +35,12 @@
   --vignette: radial-gradient(120% 90% at 50% 40%, transparent 55%, color-mix(in srgb, var(--ink) 16%, transparent) 130%);
   --brand-ring: inset 0 1px 0 var(--hi);
   color-scheme: light;
+  /* Hintergrund: warmer Holztisch mit Pergament statt Papierkorn (das Foto
+     bringt die Papiertextur schon mit). Das Scrim haelt die Panels klar. */
+  --bg-texture: url('./assets/bg-table.jpg');
+  --bg-texture-size: cover;
+  --bg-texture-repeat: no-repeat;
+  --bg-scrim: linear-gradient(180deg, color-mix(in srgb, var(--bg) 62%, transparent), color-mix(in srgb, var(--bg) 80%, transparent));
 }
 
 /* Dunkel: per Systemeinstellung ODER manuell gewaehlt.
@@ -556,6 +562,58 @@ summary,
   font-size: 13px;
   color: var(--ink-dim);
   margin-bottom: 10px;
+}
+
+/* ---- Leerzustaende mit Holzschnitt-Vignette ---- */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 12px 8px;
+  text-align: center;
+}
+
+.empty-state-art {
+  width: 156px;
+  height: 156px;
+  object-fit: contain;
+  border-radius: 16px;
+  /* Der Cremegrund der Vignette bekommt im Dunkelmodus eine ruhige Karte. */
+  background: var(--empty-art-bg, transparent);
+  box-shadow: var(--empty-art-shadow, none);
+}
+
+.empty-state-text {
+  font-size: 13px;
+  color: var(--ink-dim);
+  max-width: 34ch;
+  margin: 0;
+}
+
+/* Im Dunkelmodus eine gerahmte Karte hinter der Vignette, damit der helle
+   Cremegrund nicht als Klotz wirkt. */
+:root[data-theme='dark'] {
+  --empty-art-bg: color-mix(in srgb, var(--gold) 12%, var(--bg-panel));
+  --empty-art-shadow: var(--shadow-sm), 0 0 0 1px var(--line);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --empty-art-bg: color-mix(in srgb, var(--gold) 12%, var(--bg-panel));
+    --empty-art-shadow: var(--shadow-sm), 0 0 0 1px var(--line);
+  }
+}
+
+.wizard-art {
+  display: block;
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+  margin: 2px auto 6px;
+  border-radius: 14px;
+  background: var(--empty-art-bg, transparent);
+  box-shadow: var(--empty-art-shadow, none);
 }
 
 /* ---- Fields ---- */
