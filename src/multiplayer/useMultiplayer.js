@@ -59,6 +59,10 @@ export function useMultiplayer() {
   const [restLocked, setRestLocked] = useState(() => readJSON(REST_LOCK_KEY, false) === true);
   // Sichtbar geschaltete NSC (beim Spieler eine Kopie, beim SL der gesendete Stand).
   const [partyNpcs, setPartyNpcs] = useState([]);
+  // Zaehlt bei jedem (Wieder-)Verbinden hoch. Der Spieler muss seinen Bogen dann
+  // erneut schicken — sonst kennt ein neu gestarteter Host ihn gar nicht und
+  // zeigt "0 verbunden", obwohl Wuerfe ankommen.
+  const [resyncNonce, setResyncNonce] = useState(0);
 
   // Spiegel von `players` fuer synchrone Namens-Lookups ausserhalb von State-Updatern
   // (pushLog darf NIE in einem setState-Updater laufen — StrictMode ruft die doppelt auf).
@@ -435,6 +439,7 @@ export function useMultiplayer() {
       setConnectionState('connected');
       setStatusMessage('');
       saveSession('player', code);
+      setResyncNonce((n) => n + 1);
     });
 
     conn.on('data', (payload) => {
@@ -587,6 +592,7 @@ export function useMultiplayer() {
     setRestLockedShared,
     partyNpcs,
     shareNpcs,
+    resyncNonce,
     gmCommand,
     stash,
     hostSession,

@@ -82,12 +82,13 @@ export default function App() {
   }, [character, mp.role]);
 
   // Spieler: eigenen Bogen (debounced) an den Spielleiter pushen
-  const { role: mpRole, sendState } = mp;
+  const { role: mpRole, sendState, resyncNonce } = mp;
   useEffect(() => {
     if (mpRole !== 'player') return undefined;
     const id = setTimeout(() => sendState(character), 300);
     return () => clearTimeout(id);
-  }, [character, mpRole, sendState]);
+    // resyncNonce: nach jedem (Wieder-)Verbinden den Bogen erneut schicken
+  }, [character, mpRole, sendState, resyncNonce]);
 
   // Spieler: Befehle des Spielleiters anwenden
   const { gmCommand, clearGmCommand, sendEvent, stashDrop } = mp;

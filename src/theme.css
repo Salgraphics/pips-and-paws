@@ -256,7 +256,6 @@ summary,
   display: block;
 }
 
-
 .brand-title {
   font-family: var(--font-display);
   font-size: 27px;
@@ -409,30 +408,6 @@ summary,
   gap: 16px;
 }
 
-/* Ab genug Breite wandert der Wuerfelbereich in eine zweite Spalte und bleibt
-   beim Scrollen stehen — man sieht ihn also, waehrend man am Bogen arbeitet.
-   Darunter (Tablet/Handy) bleibt alles einspaltig an seinem Platz. */
-@media (min-width: 1180px) {
-  .sheet {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 340px;
-    align-items: start;
-  }
-
-  /* Alles ausser dem Wuerfel-Panel bleibt in Spalte 1 ... */
-  .sheet > * { grid-column: 1; }
-
-  /* ... das Wuerfel-Panel bekommt die ganze zweite Spalte und klebt darin. */
-  .sheet > .dice-panel {
-    grid-column: 2;
-    grid-row: 1 / -1;
-    position: sticky;
-    top: 16px;
-    align-self: start;
-    max-height: calc(100vh - 32px);
-    overflow-y: auto;
-  }
-}
 
 .panel {
   position: relative;
@@ -1745,6 +1720,13 @@ summary,
   overflow-y: auto;
 }
 
+/* Wuerfe der Spieler im SL-Protokoll: abgesetzte Kante, damit der SL sie von
+   seinen eigenen unterscheidet. */
+.dice-log li.roll-from-player {
+  border-left: 2px solid var(--accent-2);
+  padding-left: 8px;
+}
+
 .dice-log li {
   display: flex;
   gap: 10px;
@@ -3009,5 +2991,39 @@ summary,
   .attr-grid,
   .resource-bar {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Klebende Wuerfelspalte ----------------------------------------------
+   Steht bewusst am Dateiende: .sheet und .gm-dash setzen weiter oben
+   display:flex. Media Queries erhoehen die Spezifitaet nicht, die spaetere
+   Regel gewinnt — dieser Block muss also nach beiden stehen. */
+/* Ab genug Breite wandert der Wuerfelbereich in eine zweite Spalte und bleibt
+   beim Scrollen stehen — man sieht ihn also, waehrend man am Bogen bzw. am
+   Dashboard arbeitet. Darunter (Tablet/Handy) bleibt alles einspaltig.
+   Gilt fuer Spielerbogen UND SL-Dashboard: der SL soll fuer einen Wurf oder
+   einen Blick ins Wurf-Protokoll nirgendwohin scrollen muessen. */
+@media (min-width: 1180px) {
+  .sheet,
+  .gm-dash {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    align-items: start;
+  }
+
+  /* Alles ausser dem Wuerfel-Panel bleibt in Spalte 1 ... */
+  .sheet > *,
+  .gm-dash > * { grid-column: 1; }
+
+  /* ... das Wuerfel-Panel bekommt die ganze zweite Spalte und klebt darin. */
+  .sheet > .dice-panel,
+  .gm-dash > .dice-panel {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    position: sticky;
+    top: 16px;
+    align-self: start;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
   }
 }

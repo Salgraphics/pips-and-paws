@@ -169,6 +169,8 @@
   "gm.playerNotes": "Notizen des Spielers",
   "gm.secretNotes": "Geheime SL-Notizen (nur lokal)",
   "gm.roll": "SL-Wurf",
+  "gm.diceTitle": "Wuerfel",
+  "gm.diceEmpty": "Noch nichts gewuerfelt. Deine Wuerfe und die der Spieler landen hier.",
   "gm.action.damage": "Schaden",
   "gm.action.heal": "Heilen",
   "gm.action.pips": "Pips",

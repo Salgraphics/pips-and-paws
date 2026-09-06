@@ -169,6 +169,8 @@
   "gm.playerNotes": "Player's notes",
   "gm.secretNotes": "Secret GM notes (local only)",
   "gm.roll": "GM roll",
+  "gm.diceTitle": "Dice",
+  "gm.diceEmpty": "Nothing rolled yet. Your rolls and the players rolls land here.",
   "gm.action.damage": "Damage",
   "gm.action.heal": "Heal",
   "gm.action.pips": "Pips",
