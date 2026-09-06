@@ -7,11 +7,13 @@ Pen-&-Paper-Rollenspiel **Mausritter** — alles im Browser, ohne Anmeldung.
 
 ## Was drin ist
 
-- **Charakterbogen** — Attribute (aktuell/max), Trefferpunkte / Pips / EP / Mumm,
-  Charakterbild (Upload mit Platzhalter), Notizen. Wuerfeln mit W6, W66 und
-  Rettungswurf (W20 ≤ Attribut) inkl. Vorteil/Nachteil. Rast-Helfer (kurz/lang/voll).
+- **Charakterbogen** — Attribute (aktuell/max, nie ueber Maximum), Trefferpunkte /
+  Pips / EP / Mumm, Charakterbild (Upload mit Platzhalter), Notizen. Wuerfeln mit W6,
+  W66 und Rettungswurf (W20 ≤ Attribut) inkl. Vorteil/Nachteil; jeder Wurf landet im
+  Wuerfel-Panel. Rast-Helfer (kurz/lang/voll), vom SL sperr- und ausloesbar.
 - **Drag-and-Drop-Inventar** — Pfoten / Koerper / Rucksack, 1- und 2-Platz-Gegenstaende,
-  Tausch, Nutzungspunkte, Zustaende als Kaertchen
+  Tausch, Nutzungspunkte, Zustaende als Kaertchen. Klick auf den Schadens-Chip einer
+  Waffe wuerfelt (ein-/zweihaendig getrennt). Symbol pro Gegenstand waehlbar.
 - **Charaktererschaffung** nach SRD 2.3.1 — 3W6 (zwei hoechste), Trefferpunkte/Pips je 1W6,
   vollstaendige 36er-Hintergrundtabelle, Startausruestung, Schwache-Maus-Regel,
   Sternzeichen / Fell / Merkmal
@@ -20,13 +22,17 @@ Pen-&-Paper-Rollenspiel **Mausritter** — alles im Browser, ohne Anmeldung.
   Geteiltes Runden-Log: der SL schaltet es frei, dann sehen alle Spieler die Wuerfe
   und Ereignisse der Runde.
 - **SL-Dashboard** — alle Helden auf einen Blick (Bild, TP, Werte, Ruestung, belegte
-  Plaetze, Waffen, Zustaende), Aktionen (Schaden / Heilen / Pips / EP / Rettungswurf
-  oder Initiative fordern / Fluestern / Ansage / Item / Zustand geben), SL-Wuerfel-
-  bereich mit Reaktions- und Schatzwurf, Live-Protokoll
-- **SL-Werkzeuge** — gemeinsame Tischmitte (Loot schieben), Zeit-/Licht-/Begegnungs-Tracker,
-  NSC-/Kampf-Tracker mit Moralprobe, SL-Sitzung sichern/laden, allgemeine Notizen
+  Plaetze, Waffen, Zustaende), Aktionen (Schaden / Heilen / Pips / EP / Rast /
+  Rettungswurf oder Initiative fordern / Fluestern / Ansage / Item / Zustand geben),
+  vollwertiges SL-Wuerfel-Panel mit Reaktions-/Schatzwurf und Wurf-Protokoll
+  (inkl. der Wuerfe aller Spieler), Live-Protokoll
+- **SL-Werkzeuge** — gemeinsame Tischmitte (Loot schieben, Gegenstaende vor den
+  Spielern verstecken), Zeit-/Licht-/Begegnungs-Tracker mit Alarmbanner und
+  optionaler Tageszeit-Anzeige fuer die Spieler, NSC-/Kampf-Tracker mit Moralprobe
+  und „fuer Spieler sichtbar", SL-Sitzung sichern/laden, allgemeine Notizen
 - **Optionaler Discord-Webhook** — spiegelt Wuerfe und Ereignisse in einen Kanal
-- **Bedienung** — einklappbare Panels (Zustand gemerkt), Hell-/Dunkel-Schalter,
+- **Bedienung** — einklappbare Panels (Zustand gemerkt), Hell-/Dunkel-Schalter mit
+  eigenem Hintergrundbild je Modus, klebender Wuerfelbereich auf breiten Schirmen,
   zweisprachig DE / EN, Persistenz im `localStorage`, JSON-Export/-Import
 
 ## Entwickeln
