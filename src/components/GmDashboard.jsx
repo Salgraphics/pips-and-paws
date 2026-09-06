@@ -23,10 +23,11 @@ const SHARE_KEYS = new Set([
 ]);
 
 // Menschenlesbares Label fuer eine SL-Aktion im Live-Log.
-function cmdVars(cmd, name, lang) {
+function cmdVars(cmd, name, lang, t) {
   const v = { name, ...cmd };
   if (cmd.item?.name) v.item = loc(cmd.item.name, lang);
   if (cmd.key && CONDITION_CATALOG[cmd.key]) v.cond = loc(CONDITION_CATALOG[cmd.key].name, lang);
+  if (cmd.kind) v.kind = t(`rest.${cmd.kind}`);
   return v;
 }
 
@@ -180,7 +181,7 @@ export default function GmDashboard({ mp, notify }) {
                 player={player}
                 onCommand={(cmd) => {
                   mp.sendGmCommand(peerId, cmd);
-                  mp.logGmAction({ key: `gm.log.${cmd.cmd}`, vars: cmdVars(cmd, player.character?.name || '?', lang) });
+                  mp.logGmAction({ key: `gm.log.${cmd.cmd}`, vars: cmdVars(cmd, player.character?.name || '?', lang, t) });
                 }}
               />
             ))}
@@ -188,10 +189,11 @@ export default function GmDashboard({ mp, notify }) {
         )}
       </section>
 
-      <GmTimeTracker onLog={gmLog} />
+      <GmTimeTracker onLog={gmLog} shareTime={mp.shareTime} />
 
       <GmCombatTracker
         onLog={gmLog}
+        shareNpcs={mp.shareNpcs}
         onInitiative={() => {
           mp.sendGmCommand(null, { cmd: GM_SAVE, attr: 'dex', reason: 'initiative' });
           gmLog('combat.log.initiative', {});
@@ -203,6 +205,8 @@ export default function GmDashboard({ mp, notify }) {
         items={mp.stash}
         onAdd={mp.stashAddItem}
         onRemove={mp.stashRemoveItem}
+        onToggleHidden={mp.stashToggleHidden}
+        onItemChange={mp.stashUpdateItem}
         onClear={mp.clearStash}
       />
 
@@ -213,14 +217,24 @@ export default function GmDashboard({ mp, notify }) {
         icon={ScrollText}
         title={t('gm.liveLog')}
         right={(
-          <label className="gm-share-log" title={t('gm.shareLog.hint')}>
-            <input
-              type="checkbox"
-              checked={mp.partyLog}
-              onChange={(e) => mp.setPartyLogShared(e.target.checked)}
-            />
-            {t('gm.shareLog')}
-          </label>
+          <div className="gm-log-toggles">
+            <label className="gm-share-log" title={t('gm.restLock.hint')}>
+              <input
+                type="checkbox"
+                checked={mp.restLocked}
+                onChange={(e) => mp.setRestLockedShared(e.target.checked)}
+              />
+              {t('gm.restLock')}
+            </label>
+            <label className="gm-share-log" title={t('gm.shareLog.hint')}>
+              <input
+                type="checkbox"
+                checked={mp.partyLog}
+                onChange={(e) => mp.setPartyLogShared(e.target.checked)}
+              />
+              {t('gm.shareLog')}
+            </label>
+          </div>
         )}
       >
         <ul className="dice-log">
