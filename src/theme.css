@@ -907,13 +907,13 @@ summary,
   background: transparent;
   box-shadow: none;
   align-items: center;
+  max-width: 100%;
 }
 
 .attr-cell:first-child .stepper input {
-  width: 100%;
-  min-width: 34px;
-  max-width: 56px;
-  font-size: 33px;
+  width: 46px;
+  flex: none;
+  font-size: 30px;
   line-height: 1;
   color: var(--ink);
   text-shadow: 0 1px 0 var(--hi);
@@ -921,8 +921,9 @@ summary,
 
 .attr-cell:first-child .stepper button {
   background: transparent;
-  font-size: 17px;
-  padding: 4px 7px;
+  font-size: 16px;
+  padding: 4px 5px;
+  flex: none;
   color: var(--ink-faint);
 }
 
