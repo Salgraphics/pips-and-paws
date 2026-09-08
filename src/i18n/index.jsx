@@ -3,7 +3,8 @@ import de from './de.json';
 import en from './en.json';
 
 // Neue Sprache hinzufuegen (Details in CONTRIBUTING.md):
-//   1. <code>.json anlegen (Kopie von en.json, Werte uebersetzen) — es.json ist schon da
+//   1. <code>.json anlegen (Kopie von en.json, Werte uebersetzen)
+//      — Gerueste liegen schon bereit: es, fr, it, ja
 //   2. hier importieren + in DICTS eintragen
 //   3. in LANGS freischalten, sobald genug uebersetzt ist
 // Fehlende Schluessel fallen automatisch auf Englisch zurueck.

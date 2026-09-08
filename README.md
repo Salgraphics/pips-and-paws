@@ -4,115 +4,125 @@
 
 # Pips &amp; Paws
 
-**Charakterbogen · Spielleiter-Dashboard · serverloser Echtzeit-Multiplayer**
-für das Pen-&-Paper-Rollenspiel **Mausritter** — alles im Browser, ohne Anmeldung.
+**Character sheet · GM dashboard · serverless real-time multiplayer**
+for the **Mausritter** tabletop RPG — all in the browser, no sign-up.
 
 ### ▶ [dondavis-vibe.github.io/pips-and-paws](https://dondavis-vibe.github.io/pips-and-paws/)
 
-<sub>zweisprachig DE / EN · alles bleibt lokal im Browser · kein Konto, kein Server</sub>
+<sub>English / German · everything stays local in your browser · no account, no server</sub>
+
+<sub><a href="README.de.md">Deutsche Version →</a></sub>
 
 </div>
 
+<p align="center">
+  <img src="docs/screenshots/character-sheet.jpg" alt="Character sheet" width="48%" />
+  <img src="docs/screenshots/gm-dashboard.jpg" alt="GM dashboard" width="48%" />
+</p>
+
 ---
 
-Öffne die Seite, würfle dir eine Maus zusammen und leg los. Willst du zu mehreren
-spielen, eröffnet die Spielleitung einen Raum und teilt einen Link — die Verbindung
-läuft direkt zwischen den Browsern (WebRTC), ohne dass Daten über einen Server des
-Betreibers laufen.
+Open the site, roll up a mouse, and go. To play together, the GM opens a room and
+shares a link — the connection runs directly between browsers (WebRTC), with no
+data passing through the operator's server.
 
-## Für Spieler:innen
+## For players
 
-- **Charakterbogen** — STR / GES / WIL (aktuell & Maximum), Trefferpunkte, Pips, EP,
-  Mumm, Charakterbild und Notizen. Alles wird automatisch im Browser gesichert.
-- **Charaktererschaffung nach SRD 2.3.1** — 3W6 (die zwei höchsten), TP & Pips je 1W6,
-  vollständige 36er-Hintergrundtabelle mit Startausrüstung, Schwache-Maus-Regel,
-  Sternzeichen · Fell · Merkmal.
-- **Inventar per Drag & Drop** — zwei Pfoten, zwei Körper, sechs Rucksack; 1- und
-  2-Platz-Gegenstände, Tausch, Nutzungspunkte, Zustände als Kärtchen. Jeder
-  Gegenstand hat ein Symbol, das sich austauschen lässt.
-- **Würfeln** — W6, W66 und Rettungswurf (W20 ≤ Attribut) mit Vorteil / Nachteil.
-  Ein Klick auf den Schadenswert einer Waffe würfelt den Schaden (ein- und
-  zweihändig getrennt). Jeder Wurf landet sichtbar im Würfel-Panel.
-- **Rast-Helfer** — kurz / lang / voll, mit Rationsverbrauch und Attributs-Heilung
-  nach den Regeln.
+- **Character sheet** — STR / DEX / WIL (current & max), Hit Protection, Pips, XP,
+  Grit, a portrait and notes. Everything autosaves in the browser.
+- **Character creation to SRD 2.3.1** — 3d6 (keep the two highest), HP & Pips at 1d6
+  each, the full 36-entry background table with starting gear, the weak-mouse rule,
+  birthsign · coat · detail.
+- **Drag-and-drop inventory** — two paws, two body, six pack; 1- and 2-slot items,
+  swapping, usage dice, conditions as cards. Every item has an icon you can change.
+- **Dice** — d6, d66 and saves (d20 ≤ attribute) with advantage / disadvantage.
+  Clicking a weapon's damage value rolls it (one-paw and two-paw separately). Every
+  roll shows up in the dice panel.
+- **Rest helper** — short / long / full, with ration use and attribute healing by
+  the book.
 
-## Für Spielleiter:innen
+## For GMs
 
-- **Dashboard** — alle Helden auf einen Blick: Bild, TP, Werte, Rüstung, belegte
-  Plätze, Waffen, Zustände.
-- **Eingriffe pro Maus** — Schaden, Heilen, Pips, EP, Rast auslösen, Rettungswurf
-  oder Initiative fordern, flüstern, Ansage an alle, Gegenstand oder Zustand geben.
-- **Würfel-Panel** mit Ergebnis-Bühne, Reaktions- und Schatzwurf und einem
-  Wurf-Protokoll, in dem auch die Würfe aller Spieler auftauchen.
-- **Tischmitte** — gemeinsamer Loot-Ablage; Gegenstände lassen sich vorbereiten
-  und vor den Spielern verstecken, bis sie „auf dem Tisch" liegen.
-- **Zeit & Licht** — Zug-/Wachen-/Tag-Zähler, Fackel- und Begegnungs-Countdown,
-  Alarmbanner bei Begegnung oder Vorzeichen, optionale Tageszeit-Anzeige für die Spieler.
-- **NSC- & Kampf-Tracker** — Kreaturen aus dem SRD oder eigene, Angriff und
-  Moralprobe per Klick, einzelne NSC für die Spieler sichtbar schalten.
-- **Sitzung sichern & laden** und allgemeine Notizen.
+- **Dashboard** — every hero at a glance: portrait, HP, scores, armour, filled
+  slots, weapons, conditions.
+- **Per-mouse actions** — damage, heal, pips, XP, trigger a rest, call for a save
+  or initiative, whisper, announce to all, give an item or a condition.
+- **Dice panel** with a result stage, reaction and treasure rolls, and a roll log
+  that also shows the players' rolls.
+- **Shared table** — a common loot drop; items can be prepared and hidden from the
+  players until they're "on the table".
+- **Time & light** — turn / watch / day counter, torch and encounter countdowns,
+  an alarm banner on an encounter or omen, an optional time-of-day readout for the
+  players.
+- **NPC & combat tracker** — creatures from the SRD or your own, attack and morale
+  rolls in one click, individual NPCs toggled visible to the players.
+- **Save & load a session**, plus general notes.
 
-## Zusammen spielen
+## Playing together
 
-- **Serverloser Multiplayer** über WebRTC / PeerJS. Die Spielleitung ist der Host;
-  Spieler treten per 4-Zeichen-Code oder `?join`-Link bei. Reconnect und
-  Reload-Wiederherstellung sind eingebaut.
-- **Geteiltes Runden-Log** — die Spielleitung schaltet es frei, dann sehen alle
-  Spieler die Würfe und Ereignisse der Runde in ihrem eigenen Bogen. Würfe der
-  Spieler erreichen die Spielleitung in jedem Fall.
-- **Optionaler Discord-Webhook** — spiegelt Würfe und Ereignisse in einen Kanal.
-  Die URL liegt nur im `localStorage`, nie in der Charakterdatei.
+- **Serverless multiplayer** over WebRTC / PeerJS. The GM is the host; players join
+  with a 4-character code or a `?join` link. Reconnect and reload recovery are
+  built in.
+- **Shared round log** — the GM opens it up, then every player sees the round's
+  rolls and events on their own sheet. Players' rolls always reach the GM regardless.
+- **Optional Discord webhook** — mirrors rolls and events into a channel. The URL
+  lives in `localStorage` only, never in the character file.
 
-## Außerdem
+## Also
 
-Einklappbare Panels (Zustand gemerkt) · Hell-/Dunkel-Schalter mit eigenem
-Hintergrundbild je Modus · klebender Würfelbereich auf breiten Bildschirmen ·
-JSON-Export / -Import des Bogens · funktioniert offline aus einer einzigen Datei.
+Collapsible panels (state remembered) · light / dark toggle with its own
+background image per mode · a dice panel that sticks in view on wide screens ·
+JSON export / import of the sheet · runs offline from a single file.
 
-## Entwickeln
+<details>
+<summary>Light mode</summary>
+
+<img src="docs/screenshots/character-sheet-light.jpg" alt="Character sheet, light mode" width="70%" />
+
+</details>
+
+## Develop
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run build      # -> dist/index.html  (eine portable Datei, viteSingleFile)
+npm run build      # -> dist/index.html  (one portable file, viteSingleFile)
 npm run preview
 npm run lint       # oxlint
 ```
 
-Push auf `main` baut und deployt über GitHub Actions auf GitHub Pages.
+A push to `main` builds and deploys via GitHub Actions to GitHub Pages.
 
-**Stack:** Vite + React 19 (plain JS, kein TypeScript), `@dnd-kit` fürs
-Inventar-Raster, `peerjs` für den Multiplayer, `lucide-react` für Icons.
-Kein Backend, kein Konto.
+**Stack:** Vite + React 19 (plain JS, no TypeScript), `@dnd-kit` for the inventory
+grid, `peerjs` for multiplayer, `lucide-react` for icons. No backend, no account.
 
-## Mitmachen
+## Contributing
 
-Pull Requests sind willkommen — besonders Übersetzungen. Der Ablauf und die
-Schritte für eine neue Sprache stehen in [`CONTRIBUTING.md`](CONTRIBUTING.md).
-`src/i18n/es.json` (Spanisch) ist als Kopie von `en.json` schon angelegt und
-wartet auf Übersetzung; freigeschaltet wird eine Sprache über eine Zeile in
+Pull requests are welcome — translations especially. The flow and the steps for a
+new language are in [`CONTRIBUTING.md`](CONTRIBUTING.md). Scaffolds (copies of
+`en.json`, waiting for a translation) are already in place for **Spanish, French,
+Italian and Japanese**; a language is switched on via one line in
 `src/i18n/index.jsx`.
 
-## Regeldaten & Bilder
+## Rules data & images
 
-`src/data/*` ist aus dem offiziellen **Mausritter SRD 2.3.1** abgeleitet
-(CC BY 4.0). Wirkungstexte sind zusammengefasst, nicht wörtlich übernommen. Die
-freien PDFs unter `reference/` liegen nur lokal (Artwork nicht CC BY, per
-`.gitignore` ausgeschlossen).
+`src/data/*` is derived from the official **Mausritter SRD 2.3.1** (CC BY 4.0).
+Effect texts are summarised, not copied verbatim. The free PDFs under `reference/`
+are kept local only (their artwork is not CC BY, excluded via `.gitignore`).
 
-Wappen, Hintergrundbilder, Vignetten und Bild-Platzhalter sind aus eigenen
-KI-Generierungen abgeleitet (Quellen in `img/`), **kein** offizielles
-Mausritter-Artwork und **kein** Verlagslogo.
+The crest, background images, vignettes and portrait placeholder are derived from
+my own AI generations (sources in `img/`) — **not** official Mausritter artwork
+and **not** a publisher logo.
 
-## Rechtliches
+## Legal
 
-[Impressum &amp; Datenschutzerklärung](https://dondavis-vibe.github.io/pips-and-paws/impressum.html)
-— eine Seite (`public/impressum.html`), im Footer verlinkt. Der Datenschutz-Teil
-beschreibt den tatsächlichen technischen Aufbau; bei Änderungen an externen
-Diensten oder gespeicherten Schlüsseln anpassen. Wer den Code forkt und selbst
-betreibt, braucht ein eigenes Impressum (siehe `CONTRIBUTING.md`).
+The German [imprint &amp; privacy policy](https://dondavis-vibe.github.io/pips-and-paws/impressum.html)
+is a single page (`public/impressum.html`), linked from the footer. The privacy
+part describes the actual technical setup; update it if external services or
+stored keys change. Anyone forking the code and hosting it themselves needs their
+own imprint (see `CONTRIBUTING.md`).
 
-## Lizenz
+## License
 
 Code: **MIT** (`LICENSE`).
 
