@@ -389,5 +389,8 @@
   "gm.restLock": "Rest only by me",
   "gm.restLock.hint": "Players can no longer rest on their own — you trigger rests per mouse in the dashboard.",
   "gm.log.rest": "{name}: {kind} triggered",
-  "rest.locked": "The GM triggers rests."
+  "rest.locked": "The GM triggers rests.",
+
+  "meta.title": "Pips & Paws — Mausritter character sheet, GM dashboard & multiplayer",
+  "meta.description": "Free browser character sheet and Game Master dashboard for Mausritter, the sword-and-whiskers RPG. Real-time multiplayer, drag-and-drop inventory, dice, character creation. No sign-up."
 }

@@ -1,6 +1,6 @@
 # Pips & Paws — Mausritter Multiplayer-Web-App — MVP-Plan
 
-Stand: 2026-09-06
+Stand: 2026-09-08
 
 Arbeitstitel: **Pips & Paws** (siehe §15.4 — jederzeit änderbar).
 
@@ -18,6 +18,16 @@ Rettungswürfe/Initiative fordern, würfeln, Zeit & Licht & Begegnungen, NSC-Kam
 **Discord-Webhook** (optional, wie in den anderen Tools): im Multiplayer-Menü einklappbar. Würfe und
 Ereignisse werden in einen Discord-Kanal gespiegelt (Maus-Name als Absender, farbcodierte Embeds).
 URL nur im localStorage, nicht in der Charakterdatei. SL kann den Webhook an die Runde verteilen.
+
+**Runde 2026-09-08 (Sprachen + SEO + README):** UI-Übersetzungen FR/IT/JA komplett (je 387 Keys,
+maschinell unterstützt), in `LANGS`/`DICTS` freigeschaltet — App jetzt DE/EN/FR/IT/JA, nur `es.json`
+noch Gerüst. `?lang=xx` als Einmal-Schalter (Vorrang bei detectLang, danach aus der URL entfernt +
+als Präferenz gespeichert). `<html lang>` und `<title>`/`<meta description>` wechseln per JS mit der
+Sprache (`meta.title`/`meta.description` je Sprache). SEO: hreflang-Alternates + `og:locale:alternate`
+für fr/it/ja, JSON-LD `inLanguage` erweitert, mehrsprachiger `<noscript>`-Block, Keywords um FR/IT/JA-
+Begriffe ergänzt, `sitemap.xml` mit hreflang. README auf Englisch (`README.md`), deutsche Fassung als
+`README.de.md`, echte Screenshots (`docs/screenshots/`, headless über Edge gerendert). Attributskarte:
+zweistellige AKTUELL-Zahl überlappt nicht mehr das Plus.
 
 **Runde 2026-09-06 (Discord-Feedback + Feinschliff):** Attributwert kann nicht mehr übers Maximum;
 Zustände im Raster deutlich auffälliger; SL-Alarmbanner bei Begegnung/Vorzeichen; Tageszeit optional

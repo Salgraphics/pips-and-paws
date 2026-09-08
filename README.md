@@ -9,7 +9,7 @@ for the **Mausritter** tabletop RPG — all in the browser, no sign-up.
 
 ### ▶ [dondavis-vibe.github.io/pips-and-paws](https://dondavis-vibe.github.io/pips-and-paws/)
 
-<sub>English / German · everything stays local in your browser · no account, no server</sub>
+<sub>English · German · French · Italian · Japanese — everything stays local in your browser, no account, no server</sub>
 
 <sub><a href="README.de.md">Deutsche Version →</a></sub>
 
@@ -98,11 +98,11 @@ grid, `peerjs` for multiplayer, `lucide-react` for icons. No backend, no account
 
 ## Contributing
 
-Pull requests are welcome — translations especially. The flow and the steps for a
-new language are in [`CONTRIBUTING.md`](CONTRIBUTING.md). Scaffolds (copies of
-`en.json`, waiting for a translation) are already in place for **Spanish, French,
-Italian and Japanese**; a language is switched on via one line in
-`src/i18n/index.jsx`.
+Pull requests are welcome — translations especially. The UI ships in English,
+German, French, Italian and Japanese; the FR/IT/JA translations are new and
+machine-assisted, so corrections from native speakers are very welcome.
+`src/i18n/es.json` (Spanish) is scaffolded and waiting for a translation. The
+flow and the steps for a new language are in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Rules data & images
 

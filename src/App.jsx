@@ -66,6 +66,14 @@ export default function App() {
   useEffect(() => {
     writeJSON(STORAGE_KEY, character);
   }, [character]);
+
+  // Titel + Meta-Beschreibung an die aktuelle Sprache anpassen. Suchmaschinen
+  // rendern das JS und indexieren die uebersetzte Fassung (z. B. bei ?lang=fr).
+  useEffect(() => {
+    document.title = t('meta.title');
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute('content', t('meta.description'));
+  }, [t, lang]);
   useEffect(() => () => {
     if (toastTimer.current) clearTimeout(toastTimer.current);
   }, []);

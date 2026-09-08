@@ -389,5 +389,8 @@
   "gm.restLock": "Rast nur durch mich",
   "gm.restLock.hint": "Spieler koennen nicht mehr selbst rasten — du loest die Rast pro Maus im Dashboard aus.",
   "gm.log.rest": "{name}: {kind} ausgeloest",
-  "rest.locked": "Der Spielleiter loest die Rast aus."
+  "rest.locked": "Der Spielleiter loest die Rast aus.",
+
+  "meta.title": "Pips & Paws — Mausritter Charakterbogen, SL-Dashboard & Multiplayer",
+  "meta.description": "Kostenloser Charakterbogen und Spielleiter-Dashboard für Mausritter im Browser. Echtzeit-Multiplayer, Drag-and-Drop-Inventar, Würfeln, Charaktererschaffung. Ohne Anmeldung."
 }

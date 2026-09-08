@@ -9,7 +9,7 @@ für das Pen-&-Paper-Rollenspiel **Mausritter** — alles im Browser, ohne Anmel
 
 ### ▶ [dondavis-vibe.github.io/pips-and-paws](https://dondavis-vibe.github.io/pips-and-paws/)
 
-<sub>zweisprachig DE / EN · alles bleibt lokal im Browser · kein Konto, kein Server</sub>
+<sub>Deutsch · Englisch · Französisch · Italienisch · Japanisch — alles bleibt lokal im Browser, kein Konto, kein Server</sub>
 
 <sub><a href="README.md">English version →</a></sub>
 
@@ -101,11 +101,11 @@ Kein Backend, kein Konto.
 
 ## Mitmachen
 
-Pull Requests sind willkommen — besonders Übersetzungen. Der Ablauf und die
-Schritte für eine neue Sprache stehen in [`CONTRIBUTING.md`](CONTRIBUTING.md).
-Gerüste (Kopien von `en.json`, warten auf Übersetzung) liegen für **Spanisch,
-Französisch, Italienisch und Japanisch** schon bereit; freigeschaltet wird eine
-Sprache über eine Zeile in `src/i18n/index.jsx`.
+Pull Requests sind willkommen — besonders Übersetzungen. Die Oberfläche gibt es
+auf Deutsch, Englisch, Französisch, Italienisch und Japanisch; FR/IT/JA sind neu
+und maschinell unterstützt, Korrekturen von Muttersprachler:innen sehr
+willkommen. `src/i18n/es.json` (Spanisch) ist als Gerüst angelegt und wartet auf
+Übersetzung. Ablauf und Schritte für eine neue Sprache: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Regeldaten & Bilder
 
