@@ -99,10 +99,10 @@ grid, `peerjs` for multiplayer, `lucide-react` for icons. No backend, no account
 ## Contributing
 
 Pull requests are welcome — translations especially. The UI ships in English,
-German, French, Italian and Japanese; the FR/IT/JA translations are new and
-machine-assisted, so corrections from native speakers are very welcome.
-`src/i18n/es.json` (Spanish) is scaffolded and waiting for a translation. The
-flow and the steps for a new language are in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+German, Spanish, French, Italian and Japanese. Spanish was contributed by
+[@Salgraphics](https://github.com/Salgraphics); FR/IT/JA are machine-assisted, so
+corrections from native speakers are very welcome. The flow and the steps for a
+new language are in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Rules data & images
 

@@ -118,7 +118,7 @@ export default function DiceRoller({ character, onEvent, external }) {
           <RollButton
             key={k}
             sides={20}
-            label={k.toUpperCase()}
+            label={t(`attr.abbr.${k}`)}
             kind="save"
             title={t('dice.saveVs', { attr: t(`attr.${k}`) })}
             onRoll={() => save(k)}

@@ -102,10 +102,10 @@ Kein Backend, kein Konto.
 ## Mitmachen
 
 Pull Requests sind willkommen — besonders Übersetzungen. Die Oberfläche gibt es
-auf Deutsch, Englisch, Französisch, Italienisch und Japanisch; FR/IT/JA sind neu
-und maschinell unterstützt, Korrekturen von Muttersprachler:innen sehr
-willkommen. `src/i18n/es.json` (Spanisch) ist als Gerüst angelegt und wartet auf
-Übersetzung. Ablauf und Schritte für eine neue Sprache: [`CONTRIBUTING.md`](CONTRIBUTING.md).
+auf Deutsch, Englisch, Spanisch, Französisch, Italienisch und Japanisch. Spanisch
+stammt von [@Salgraphics](https://github.com/Salgraphics); FR/IT/JA sind
+maschinell unterstützt, Korrekturen von Muttersprachler:innen sehr willkommen.
+Ablauf und Schritte für eine neue Sprache: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Regeldaten & Bilder
 

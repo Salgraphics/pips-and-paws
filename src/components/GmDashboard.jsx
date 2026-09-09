@@ -30,6 +30,7 @@ function cmdVars(cmd, name, lang, t) {
   if (cmd.item?.name) v.item = loc(cmd.item.name, lang);
   if (cmd.key && CONDITION_CATALOG[cmd.key]) v.cond = loc(CONDITION_CATALOG[cmd.key].name, lang);
   if (cmd.kind) v.kind = t(`rest.${cmd.kind}`);
+  if (cmd.attr) v.attr = t(`attr.abbr.${cmd.attr}`);
   return v;
 }
 

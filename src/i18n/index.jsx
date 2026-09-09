@@ -1,20 +1,21 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import de from './de.json';
 import en from './en.json';
+import es from './es.json';
 import fr from './fr.json';
 import it from './it.json';
 import ja from './ja.json';
 
 // Neue Sprache hinzufuegen (Details in CONTRIBUTING.md):
 //   1. <code>.json anlegen (Kopie von en.json, Werte uebersetzen)
-//      — Geruest fuer Spanisch liegt bereit: es.json
 //   2. hier importieren + in DICTS eintragen
 //   3. in LANGS freischalten, sobald genug uebersetzt ist
 // Fehlende Schluessel fallen automatisch auf Englisch zurueck.
-const DICTS = { de, en, fr, it, ja };
+const DICTS = { de, en, es, fr, it, ja };
 export const LANGS = [
   { code: 'de', label: 'DE' },
   { code: 'en', label: 'EN' },
+  { code: 'es', label: 'ES' },
   { code: 'fr', label: 'FR' },
   { code: 'it', label: 'IT' },
   { code: 'ja', label: 'JA' },

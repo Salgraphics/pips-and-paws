@@ -82,7 +82,7 @@ export default function GmPlayerCard({ player, onCommand }) {
           const a = c[k] || { current: 0, max: 0 };
           return (
             <span key={k} className={`gm-attr${a.current < a.max ? ' gm-attr-hurt' : ''}`}>
-              {k.toUpperCase()} {a.current}
+              {t(`attr.abbr.${k}`)} {a.current}
               {a.current !== a.max ? `/${a.max}` : ''}
             </span>
           );
@@ -136,7 +136,7 @@ export default function GmPlayerCard({ player, onCommand }) {
         <span className="gm-save-label">{t('gm.action.save')}:</span>
         {['str', 'dex', 'wil'].map((k) => (
           <button key={k} type="button" className="btn btn-sm btn-ghost" onClick={() => onCommand({ cmd: GM_SAVE, attr: k })}>
-            {k.toUpperCase()}
+            {t(`attr.abbr.${k}`)}
           </button>
         ))}
         <span className="gm-save-label">{t('rest.title')}:</span>

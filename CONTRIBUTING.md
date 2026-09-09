@@ -15,11 +15,10 @@ unter dieselbe Lizenz. Ein CLA gibt es nicht.
 
 ## Eine Sprache hinzufügen
 
-Die Oberfläche liegt in `src/i18n/`. `de.json`, `en.json`, `fr.json`, `it.json`
-und `ja.json` sind vollständig und freigeschaltet (FR/IT/JA maschinell
-unterstützt — Korrekturen willkommen). **Als Gerüst (Kopie von `en.json`, noch
-unübersetzt) liegt bereit:** `es.json` (Spanisch). Für jede andere Sprache legst
-du analog eine `<code>.json` als Kopie von `en.json` an.
+Die Oberfläche liegt in `src/i18n/`. `de.json`, `en.json`, `es.json`, `fr.json`,
+`it.json` und `ja.json` sind vollständig und freigeschaltet (ES von @Salgraphics;
+FR/IT/JA maschinell unterstützt — Korrekturen willkommen). Für eine neue Sprache
+legst du eine `<code>.json` als Kopie von `en.json` an.
 
 1. **`src/i18n/<code>.json`** — die Werte übersetzen (Schlüssel unverändert lassen).
    Mit `de.json`/`en.json` abgleichen, damit keine Schlüssel fehlen. Fehlende

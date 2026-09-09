@@ -136,7 +136,7 @@ export default function CharacterWizard({ onDone, onCancel }) {
           <div className="roll-row">
             {['str', 'dex', 'wil'].map((k) => (
               <div key={k} className="roll-box">
-                <span>{k.toUpperCase()}</span>
+                <span>{t(`attr.abbr.${k}`)}</span>
                 <strong>{attrs[k].value}</strong>
                 <span className="roll-dice">{attrs[k].dice.join(' ')}</span>
               </div>
@@ -149,12 +149,12 @@ export default function CharacterWizard({ onDone, onCancel }) {
             <span className="hint">{t('wizard.swap')}</span>
             <select className="text-input" value={swapA} onChange={(e) => setSwapA(e.target.value)}>
               {['str', 'dex', 'wil'].map((k) => (
-                <option key={k} value={k}>{k.toUpperCase()}</option>
+                <option key={k} value={k}>{t(`attr.abbr.${k}`)}</option>
               ))}
             </select>
             <select className="text-input" value={swapB} onChange={(e) => setSwapB(e.target.value)}>
               {['str', 'dex', 'wil'].map((k) => (
-                <option key={k} value={k}>{k.toUpperCase()}</option>
+                <option key={k} value={k}>{t(`attr.abbr.${k}`)}</option>
               ))}
             </select>
             <button type="button" className="icon-btn" onClick={doSwap} aria-label={t('wizard.swap')}>
