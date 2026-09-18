@@ -415,7 +415,7 @@
   "footer.help": "Ayuda y guía rápida",
   "hint.save": "Tirada de salvación: tira 1 d20. Si cae un número igual o debajo del valor actual tienes éxito. El daño va restando el valor, y con eso, tus probabilidades.",
   "hint.pips": "Las pepitas son la moneda en Mausritter  — paga, saquea, compra. Se registran separadas a la experiencia.",
-  "hint.xp": "Experiencia. Cuendo tengas suficiente, tu personaje sube de nivel. Las agallas son bonificación de protección contra daño por nivel (nivel 2: +1, 3–4: +2, 5+: +3), se restan antes del daño a tus PG.",
+  "hint.xp": "Experiencia. Cuando tengas suficiente, tu personaje sube de nivel.",
   "hint.grit": "A partir del segundo nivel, tu ratón tiene Agallas. Esto permite a tu ratón ignorar Estados. Por cada punto de Agallas que tengas, puedes colocar un Estado en el espacio de Agallas en lugar de ocupar espacio de inventario. Una vez colocado, no puede eliminarse hasta despejarlo.",
   "hint.usage": "Uso. Marca una casilla cuando uses un objeto (comer una ración, lanzar un hechizo, antorcha gastada). Todas las casillas marcadas = Objeto no usable.",
   "help.title": "Ayuda y guía rápida",
