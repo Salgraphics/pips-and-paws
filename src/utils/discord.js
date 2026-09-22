@@ -130,7 +130,11 @@ export async function testWebhook(url) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         username: 'Pips & Paws',
-        embeds: [{ color: COLORS.gold, description: '🐭 Verbindung steht — Wuerfe und Ereignisse landen ab jetzt hier.' }],
+        embeds: [{ color: COLORS.gold, description: 
+          '🐭 Verbindung steht — Wuerfe und Ereignisse landen ab jetzt hier.\n\n'
+          '🐭 Conexión establecida — Las tiradas y eventos aparecerán aquí a partir de ahora.\n\n' +
+          '🐭 Connection established — Rolls and events will appear here from now on.' +
+           }],
       }),
     });
     return res.ok;
